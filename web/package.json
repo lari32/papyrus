@@ -1,0 +1,43 @@
+{
+  "name": "papyrus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "github.com/lari32/papyrus",
+  "author": "lari32",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "lint": "yarn run lint:lit-analyzer && yarn run lint:eslint",
+    "lint:eslint": "eslint 'src/**/*.ts'",
+    "lint:lit-analyzer": "lit-analyzer",
+    "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --ignore-path ./.eslintignore --write",
+    "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
+    "analyze:watch": "cem analyze --litelement --globs \"src/**/*.ts\" --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
+    "eslint": "8.56.0",
+    "lit-analyzer": "^2.0.3",
+    "prettier": "^3.2.5",
+    "rollup": "^4.14.1",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "apollo-client": "^2.6.10",
+    "graphql": "15",
+    "lit": "^3.1.2",
+    "monaco-editor": "^0.47.0"
+  }
+}
